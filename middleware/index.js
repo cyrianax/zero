@@ -6,6 +6,7 @@ const bodyparser = require('koa-bodyparser')
 const statics = require('koa-static')
 const compress = require('koa-compress')
 const cors = require('@koa/cors')
+const parameter = require('koa-parameter');
 
 // 自定义中间件
 const mongoose = require('./mid.mongoose')
@@ -13,6 +14,8 @@ const router = require('./mid.router')
 const template = require('./mid.template')
 
 module.exports = app => {
+  // 校验参数
+  app.use(parameter(app))
   app.use(cors())
   app.use(logger())
   app.use(bodyparser())
