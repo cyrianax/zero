@@ -6,7 +6,7 @@ const {
 	delete: del,
 	update,
 	find,
-	findById
+	contentFindById
 } = require('../controllers/tag');
 const router = new KoaRouter({prefix: '/tag'});
 
@@ -18,7 +18,7 @@ router.delete('/:id', del);
 router.put('/:id', update);
 // 查询tag列表
 router.get('/', find);
-// 查询指定tag
-router.get('/:id', findById);
+// tag id查询文章
+router.get('/:id', contentFindById);
 
 module.exports = router;
