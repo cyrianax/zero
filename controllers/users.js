@@ -19,29 +19,29 @@ class UserCtl {
 	}
 	async delete(ctx) {
 		const user = await User.findByIdAndRemove(ctx.params.id);
-		if(!tag) ctx.throw(404, '用户不存在!');
-		ctx.body = user;
+		if(!user) ctx.throw(404, '用户不存在!');
+		ctx.status = 204;
 	}
 	async update(ctx) {
-		const user = await User.findByIdAndUpdate(ctx.params.id);
-		if(!tag) ctx.throw(404, '用户不存在!');
+		const user = await User.findByIdAndUpdate(ctx.params.id, ctx.request.body);
+		if(!user) ctx.throw(404, '用户不存在!');
 		ctx.body = user;
 	}
 	async findById(ctx) {
 		const user = await User.findById(ctx.params.id);
-		if(!tag) ctx.throw(404, '用户不存在!');
+		if(!user) ctx.throw(404, '用户不存在!');
 		ctx.body = user;
 	}
 	async login(ctx) {
 		ctx.verifyParams({
-			name: String,
-			password: String
+			name: 'string',
+			password: 'string'
 		});
 		const user = await User.findOne(ctx.request.body);
 
 		if (user) {
 			let token = jsonwebtoken.sign({ id: user._id, password: user.password }, config.secret, { expiresIn: '1d' });
-			ctx.body = token;
+			ctx.body = {token};
 			ctx.state.token = token;
 			ctx.cookies.set('token', token, {maxAge: 7200000});
 		} else {

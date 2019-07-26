@@ -7,6 +7,7 @@ const statics = require('koa-static')
 const compress = require('koa-compress')
 const cors = require('@koa/cors')
 const parameter = require('koa-parameter');
+const jsonError = require('koa-json-error');
 
 // 自定义中间件
 const mongoose = require('./mid.mongoose')
@@ -16,6 +17,12 @@ const template = require('./mid.template')
 module.exports = app => {
   // 校验参数
   app.use(parameter(app))
+  // json错误处理
+  app.use(jsonError({
+    postFormat(e, { stack, ...rest }) {
+      return process.env.NODE_ENV === 'production' ? rest : { stack, ...rest }
+    }
+  }));
   app.use(cors())
   app.use(logger())
   app.use(bodyparser())

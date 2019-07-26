@@ -1,4 +1,5 @@
 const Tag = require('../models/tags');
+const Content = require('../models/contents');
 
 class TagCtl {
 	async create(ctx) {
@@ -19,14 +20,14 @@ class TagCtl {
 		ctx.status = 204;
 	}
 	async update(ctx) {
-		const tag = await Tag.findByIdAndUpdate(ctx.params.id);
+		const tag = await Tag.findByIdAndUpdate(ctx.params.id, ctx.request.body);
 		if(!tag) ctx.throw(404, 'tag不存在');
 		ctx.body =  tag;
 	}
-	async findById(ctx) {
+	async contentFindById(ctx) {
 		const tag = await Tag.findById(ctx.params.id);
 		if(!tag) ctx.throw(404, 'tag不存在');
-		ctx.body =  tag;
+		ctx.body =  await Content.find({tags: ctx.params.id}).populate('tags');
 	}
 }
 
