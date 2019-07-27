@@ -1,4 +1,5 @@
 const path = require('path')
+require('colors')
 
 // 第三方中间件
 const logger = require('koa-logger')

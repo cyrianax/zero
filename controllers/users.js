@@ -38,14 +38,14 @@ class UserCtl {
 			password: 'string'
 		});
 		const user = await User.findOne(ctx.request.body);
-
+		
 		if (user) {
 			let token = jsonwebtoken.sign({ id: user._id, password: user.password }, config.secret, { expiresIn: '1d' });
 			ctx.body = {token};
 			ctx.state.token = token;
 			ctx.cookies.set('token', token, {maxAge: 7200000});
 		} else {
-			ctx.throw(401, '用户或密码错误');
+			ctx.throw(401, '用户名或密码错误');
 		}
 	}
 }
