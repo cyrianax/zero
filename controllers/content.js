@@ -1,4 +1,5 @@
 const Content = require('../models/contents');
+const {pagingFormat} = require('../utils');
 
 class ContentCtl {
 	async create(ctx) {
@@ -12,8 +13,17 @@ class ContentCtl {
 		ctx.body = content;
 	}
 	async find(ctx) {
-		const contents = await Content.find().populate('tags');
-		ctx.body = contents;
+		const {size, index} = pagingFormat(ctx.query);
+		let {tag_id, q = ''} = ctx.query;
+		let filter = [{title: RegExp(q)}];
+		if(tag_id !== undefined) filter.push({tags: tag_id});
+
+		const contents = await Content.find({$and: filter}).populate('tags').limit(size).skip(index);
+		const count = await Content.count();
+		ctx.body = {
+			list: contents,
+			count
+		};
 	}
 	async delete(ctx) {
 		const content = await Content.findByIdAndRemove(ctx.params.id);
