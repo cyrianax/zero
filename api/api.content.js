@@ -7,12 +7,12 @@ const {
 	find,
 	findById
 } = require('../controllers/content');
-const router = new KoaRouter({prefix: '/content'});
+const router = new KoaRouter({ prefix: '/content' });
 
 // 新增文章
 router.post('/', create);
 // 删除文章
-router.delete('/:id', del);
+router.delete('/', del);
 // 修改文章
 router.put('/:id', update);
 // 查询文章列表
