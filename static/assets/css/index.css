@@ -1,0 +1,23 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #8f8e94;
+}
+a:active {
+  color: #8f8e94;
+}
+.header {
+  height: 40px;
+  background: #fafafa;
+}
+.p-index {
+  font-size: 14px;
+}

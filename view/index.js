@@ -1,8 +1,8 @@
 const Router = require('koa-router')
-const view = new Router()
+const api = new Router()
 
-const controller = name => require(`./${name}/controller`)
+const index = require('./controllers/index')
 
-view.get('/', controller('index'))
+api.use(index.routes(), index.allowedMethods())
 
-module.exports = view
+module.exports = api

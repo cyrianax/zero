@@ -2,9 +2,10 @@ const fs = require('fs')
 const path = require('path')
 const handlebars = require('handlebars')
 
-const getTemplate = name => fs.readFileSync(path.resolve(__dirname, `../view/${name}/template.html`)).toString('utf-8')
+const getTemplate = name => fs.readFileSync(path.resolve(__dirname, `../view/templates/${name}.html`)).toString('utf-8')
 
 handlebars.registerPartial('header', getTemplate('header'))
+handlebars.registerPartial('footer', getTemplate('footer'))
 
 module.exports = () => {
   return async (ctx, next) => {
