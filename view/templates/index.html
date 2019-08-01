@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JSforEach - JavaScript语言荟萃</title>
+  <title>JSforEach - JavaScript技术研究</title>
   <meta name="Keywords" content="">
   <meta name="description" content="">
   <meta charset="utf-8">
@@ -14,15 +14,28 @@
 <body>
   {{> header}}
   <div class="layout-content p-index">
-      <ul class="g-block">
+    <div class="g-block list">
+      <ul>
         {{#each contents}}
-        <li>
+        <li class="list-item">
           <a href="/content/{{_id}}">{{title}}</a>
-          <div>{{tags}}</div>
-          <span>{{create_date}}</span>
+          <div class="list-item-info">
+            <label>标签：</label>
+            {{#each tags}}
+              <span class="list-item-tag">{{name}}</span>
+            {{/each}}
+            <label>创建时间：</label>
+            <span>{{createDate}}</span>
+          </div>
         </li>
         {{/each}} 
       </ul>
+    </div>
+
+    <div class="g-block tags">
+      tags
+    </div>
+    
   </div>
   {{> footer}}
 </body>

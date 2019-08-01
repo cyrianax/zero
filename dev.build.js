@@ -5,6 +5,7 @@ const path = require('path')
 const shell = require('shelljs')
 
 fs.mkdirSync(__dirname + '/static/assets/css', { recursive: true })
+shell.cp(__dirname + '/view/assets/css/common/*.css', __dirname + '/static/assets/css')
 shell.cp('-R', __dirname + '/view/assets/img', __dirname + '/static/assets')
 shell.cp('-R', __dirname + '/view/assets/font', __dirname + '/static/assets')
 

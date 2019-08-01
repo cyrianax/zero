@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JS.foreach(x => learn(x))</title>
+  <title>JSforEach - JavaScript技术研究</title>
   <meta name="Keywords" content="">
   <meta name="description" content="">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/index.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/github-markdown.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/content.css">
   
 </head>
 <body>
-  <div id="app">
-    {{> header}}
-    <div class="g-container">
-      <div class="g-content p-index">
-        
-
+  {{> header}}
+  <div class="layout-content p-content">
+    <div class="g-block detail">
+      <p>
+        {{content.title}}
+      </p>
+      <div class="markdown-body">
+        {{{content.content}}}
       </div>
     </div>
-    {{> footer}}
   </div>
+  {{> footer}}
 </body>
 </html>

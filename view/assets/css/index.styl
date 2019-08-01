@@ -1,7 +1,61 @@
 @import './common/define.styl';
 @import './common/global.styl';
 @import './common/header.styl';
+@import './common/layout.styl';
 
 .p-index{
-  font-size: 14px;
+  display: flex;
+
+  >.list{
+    width: 900px;
+    margin-right: 16px;
+    .list-item{
+      padding: 16px 0;
+      border-bottom: 1px solid $lineLight;
+
+      &:first-child{
+        padding-top: 0;
+      }
+
+      &:last-child{
+        border-bottom: none;
+      }
+
+      >a{
+        display: inline-block;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      >.list-item-info{
+        font-size: 12px;
+
+        label{
+          color: $normal;
+          margin-left: 16px;
+          &:first-child{
+            margin: 0;
+          }
+        }
+
+        span{
+          color: $dark;
+          display: inline-block;
+          border-radius: 4px;
+          background: $bg;
+          padding: 2px 8px;
+
+          &.list-item-tag{
+            background: $secondary;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  >.tags{
+    flex: auto;
+  }
 }

@@ -1,9 +1,43 @@
-.header{
-  height: 40px;
-  background: $bg;
-  border-bottom: 3px solid blue; 
-  font-size: 14px;
-
-  display: flex;
-  justify-content: space-between;
+@font-face{
+  font-family: 'logo';
+  src: url('../font/ruler2/Ruler Heavy.ttf') format('truetype')
 }
+
+#header{
+  display: flex;
+  width: $pageWidth;
+  margin: auto;
+  
+  >#site-logo{
+    font-family: logo!important;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    margin-right: 24px;
+    >a{
+      >span{
+        &:nth-child(1){
+          color: $primary;
+        }
+        &:nth-child(2){
+          color: #000
+        }
+      }
+    }
+  }
+
+  >#site-menu{
+    height: 48px;
+    display: flex;
+    >li{
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      padding: 0px 8px
+    }
+  }
+}
+
+  
+
