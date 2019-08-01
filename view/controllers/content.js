@@ -8,8 +8,6 @@ router.get('/content/:id', async ctx => {
   if (ctx.params.id) {
     const content = await Content.findById(ctx.params.id)
     if (content) {
-      console.log(content);
-      
       ctx.render('content', {
         content: {
           title: content.title,
