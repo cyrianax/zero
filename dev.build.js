@@ -6,6 +6,7 @@ const shell = require('shelljs')
 
 fs.mkdirSync(__dirname + '/static/assets/css', { recursive: true })
 shell.cp('-R', __dirname + '/view/assets/img', __dirname + '/static/assets')
+shell.cp('-R', __dirname + '/view/assets/font', __dirname + '/static/assets')
 
 const files = glob.sync('./view/assets/css/*.styl')
 const stylusRenderPromises = files.map(file => {

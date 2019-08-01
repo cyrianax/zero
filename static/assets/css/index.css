@@ -14,13 +14,69 @@ a {
 a:active {
   color: #4a4a4a;
 }
-.header {
-  height: 40px;
-  background: #fafafa;
-  border-bottom: 3px solid #00f;
-  font-size: 14px;
+@font-face {
+  font-family: 'logo';
+  src: url("../font/ruler2/Ruler Heavy.ttf") format('truetype');
+}
+#header {
   display: flex;
-  justify-content: space-between;
+  width: 1200px;
+  margin: auto;
+}
+#header >#site-logo {
+  font-family: logo;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  margin-right: 24px;
+}
+#header >#site-logo >a >span:nth-child(1) {
+  color: #5143dd;
+}
+#header >#site-logo >a >span:nth-child(2) {
+  color: #000;
+}
+#header >#site-menu {
+  height: 48px;
+  display: flex;
+}
+#header >#site-menu >li {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  padding: 0px 8px;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+}
+body .layout-header {
+  background: #fff;
+  border-top: 3px solid #5143dd;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 8px;
+}
+body .layout-content {
+  width: 1200px;
+  margin: auto;
+  flex: auto;
+}
+body .layout-footer {
+  width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+.g-block {
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
 }
 .p-index {
   font-size: 14px;

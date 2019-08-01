@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JS.foreach(x => learn(x))</title>
+  <title>JSforEach - JavaScript语言荟萃</title>
   <meta name="Keywords" content="">
   <meta name="description" content="">
   <meta charset="utf-8">
@@ -12,14 +12,18 @@
   
 </head>
 <body>
-  <div id="app">
-    {{> header}}
-    <div class="g-container">
-      <div class="g-content p-index">
-        {{pageName}}
-      </div>
-    </div>
-    {{> footer}}
+  {{> header}}
+  <div class="layout-content p-index">
+      <ul class="g-block">
+        {{#each contents}}
+        <li>
+          <a href="/content/{{_id}}">{{title}}</a>
+          <div>{{tags}}</div>
+          <span>{{create_date}}</span>
+        </li>
+        {{/each}} 
+      </ul>
   </div>
+  {{> footer}}
 </body>
 </html>
