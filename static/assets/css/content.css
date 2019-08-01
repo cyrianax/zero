@@ -47,6 +47,10 @@ a:active {
   font-size: 16px;
   padding: 0px 8px;
 }
+#header >#site-menu >li:hover {
+  border-bottom: 3px solid #5143dd;
+  color: #5143dd;
+}
 html {
   height: 100%;
 }
@@ -78,4 +82,17 @@ body .layout-footer {
   background: #fff;
   border: 1px solid #eee;
   border-radius: 4px;
+}
+.p-content .title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+.p-content .info {
+  text-align: center;
+  color: #acacac;
+  font-size: 12px;
+  border-bottom: 1px solid #eee;
+  padding: 8px 0px;
+  margin-bottom: 16px;
 }
