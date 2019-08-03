@@ -9,8 +9,10 @@ const contentSchema = new Schema({
 	tags: { type: [{ type: Schema.Types.ObjectId, ref: 'Tag' }] },
 	create_date: { type: Date, default: Date.now },
 	update_date: { type: Date, default: Date.now },
+	// 审核
 	statusId: { type: Number, default: 0 },
-	content: { type: String, required: true }
+	content: { type: String, required: true },
+	read_quantity: { type: Number, default: 0 }
 }, { timestamps: { updatedAt: 'update_date', createdAt: 'create_date' } });
 
 // 定义Model
