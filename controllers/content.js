@@ -47,7 +47,7 @@ class ContentCtl {
 		ctx.body = content;
 	}
 	async findById(ctx) {
-		const content = await Content.findById(ctx.params.id);
+		const content = await Content.findById(ctx.params.id).populate('tags');
 		if (!content) ctx.throw(404, '文章不存在');
 		ctx.body = content;
 	}
