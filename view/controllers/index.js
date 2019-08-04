@@ -13,7 +13,7 @@ router.get('/', async ctx => {
 
   if (tag_id !== undefined) filter.push({ tags: tag_id })
 
-  const list = await Content.find({ $and: filter }, {title: 1, create_date: 1}).populate('tags').limit(size).skip(index)
+  const list = await Content.find({ $and: filter }, { title: 1, create_date: 1 }).populate('tags').sort({ create_date: -1 }).limit(20).skip(index)
   const contents = list.map(item => ({
     tags: item.tags,
     _id: item._id,

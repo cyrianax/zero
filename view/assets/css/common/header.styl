@@ -5,6 +5,7 @@
 
 #header{
   display: flex;
+  align-items: center;
   width: $pageWidth;
   margin: auto;
   
@@ -30,6 +31,7 @@
   >#site-menu{
     height: 48px;
     display: flex;
+    flex: auto;
     >li{
       display: flex;
       align-items: center;
@@ -42,6 +44,36 @@
       }
     }
   }
+  
+  >#site-search{
+    height: 32px;
+    background: $bg;
+    border: 1px solid $line;
+    border-radius: 16px;
+    padding: 0px 8px;
+    text-align: right; 
+    position: relative;
+
+    >input{
+      height: 24px;
+      border: none;
+      background: none;
+      padding: 0 36px 0 4px;
+    }
+
+    >button{
+      position: absolute;
+      right: 0;
+      top: -1px;
+      height: 32px;
+      width: 32px;
+      background: $primary;
+      border: none;
+      border-radius: 100%;
+      color: #fff;
+    }
+  }
+
 }
 
   
